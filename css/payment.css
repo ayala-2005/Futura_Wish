@@ -1,0 +1,610 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background:#011830;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* אנימציית חלקיקים ברקע */
+.bg-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ec80fa;
+    border-radius: 50%;
+    animation: float 12s infinite linear;
+    box-shadow: 0 0 15px #ec80fa;
+}
+
+.particle.gold {
+    background: #ffd700;
+    box-shadow: 0 0 15px #ffd700;
+    animation: floatGold 10s infinite linear;
+}
+
+.particle.pink {
+    background: #ff4081;
+    box-shadow: 0 0 15px #ff4081;
+    animation: floatPink 14s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh) translateX(150px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatGold {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateY(80vh) translateX(50px) rotate(180deg) scale(1);
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh) translateX(-100px) rotate(720deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes floatPink {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    88% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh) translateX(200px) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+/* קונטיינר ראשי */
+.success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* אייקון הצלחה מטורף */
+.success-icon {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
+    position: relative;
+    animation: successPulse 2s ease-in-out infinite alternate;
+}
+
+.success-circle {
+    width: 100%;
+    height: 100%;
+    border: 8px solid #ec80fa;
+    border-radius: 50%;
+    position: relative;
+    background: radial-gradient(circle, rgba(236, 128, 250, 0.2), transparent);
+    animation: circleGlow 3s ease-in-out infinite;
+}
+
+.success-circle::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ec80fa, #ff4081, #ffd700, #ec80fa);
+    background-size: 200% 200%;
+    animation: rainbowSpin 4s linear infinite;
+    z-index: -1;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+}
+
+.checkmark path {
+    stroke: #ec80fa;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawCheck 2s ease-in-out 0.5s forwards;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px #ec80fa);
+    }
+
+    100% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 40px #ec80fa) drop-shadow(0 0 60px #ff4081);
+    }
+}
+
+@keyframes circleGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 30px #ec80fa, inset 0 0 30px rgba(236, 128, 250, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 60px #ec80fa, 0 0 90px #ff4081, inset 0 0 50px rgba(236, 128, 250, 0.4);
+    }
+}
+
+@keyframes rainbowSpin {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@keyframes drawCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* כותרת הצלחה */
+.success-title {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ec80fa, #ff4081, #ffd700, #ec80fa);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleWave 3s ease-in-out infinite;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.success-title::before {
+    content: '✨';
+    position: absolute;
+    right: -60px;
+    top: -10px;
+    font-size: 2rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.success-title::after {
+    content: '🎉';
+    position: absolute;
+    left: -60px;
+    top: -10px;
+    font-size: 2rem;
+    animation: sparkle 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes titleWave {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        transform: translateY(0);
+    }
+
+    25% {
+        background-position: 100% 50%;
+        transform: translateY(-5px);
+    }
+
+    50% {
+        background-position: 200% 50%;
+        transform: translateY(0);
+    }
+
+    75% {
+        background-position: 300% 50%;
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.3) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* כרטיס פרטי הזמנה */
+.order-card {
+    background: rgba(0, 14, 32, 0.8);
+    border: 3px solid #ec80fa;
+    border-radius: 25px;
+    padding: 40px;
+    margin-top: 30px;
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+    animation: cardSlideUp 1s ease-out 0.8s both;
+    max-width: 600px;
+    width: 100%;
+}
+
+.order-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(236, 128, 250, 0.1), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes cardSlideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.order-number {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.order-number h3 {
+    color: #ec80fa;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+.order-id {
+    color: #ffd700;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    animation: numberFlicker 0.1s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px #ec80fa;
+    }
+
+    100% {
+        text-shadow: 0 0 20px #ec80fa, 0 0 30px #ff4081;
+    }
+}
+
+@keyframes numberFlicker {
+    0% {
+        text-shadow: 0 0 5px #ffd700;
+    }
+
+    100% {
+        text-shadow: 0 0 15px #ffd700, 0 0 25px #ffd700;
+    }
+}
+
+/* פרטי הזמנה */
+.order-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    background: rgba(236, 128, 250, 0.1);
+    border: 1px solid rgba(236, 128, 250, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: detailPop 0.6s ease-out;
+}
+
+.detail-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: #ec80fa;
+    box-shadow: 0 10px 30px rgba(236, 128, 250, 0.3);
+}
+
+.detail-label {
+    color: #ec80fa;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-value {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+@keyframes detailPop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* הודעת תודה */
+.thank-you-message {
+    background: linear-gradient(45deg, rgba(236, 128, 250, 0.1), rgba(255, 64, 129, 0.1));
+    border: 2px solid #ff4081;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    animation: messageFloat 3s ease-in-out infinite;
+}
+
+
+
+.thank-you-text {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.thank-you-subtext {
+    color: #ec80fa;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+@keyframes messageFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* כפתורים */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    background: linear-gradient(45deg, #ec80fa, #ff4081);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: buttonGlow 2s ease-in-out infinite alternate;
+}
+
+.action-btn.secondary {
+    background: transparent;
+    border: 2px solid #ec80fa;
+    color: #ec80fa;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.action-btn:hover::before {
+    left: 100%;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(236, 128, 250, 0.4);
+}
+
+.action-btn.secondary:hover {
+    background: #ec80fa;
+    color: white;
+}
+
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(236, 128, 250, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 30px rgba(236, 128, 250, 0.6);
+    }
+}
+
+/* זיקוקים */
+.fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.firework {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: explode 2s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* ריספונסיביות */
+@media (max-width: 768px) {
+    .success-title {
+        font-size: 2.5rem;
+    }
+
+    .success-icon {
+        width: 150px;
+        height: 150px;
+    }
+
+    .order-card {
+        padding: 25px;
+        margin: 20px 10px;
+    }
+
+    .order-details {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}

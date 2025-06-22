@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&display=swap");
+
+/* עיצוב מיכל הטופס */
+#main {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* הוספתי זה כדי לוודא שהרכיבים יסודרו אנכית */
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px 80px 20px;
+    min-height: calc(100vh - 200px);
+}
+
+/* עיצוב הטופס הראשי */
+form {
+    max-width: 450px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.358);
+    border-radius: 25px;
+    padding: 3rem 2.5rem;
+    direction: rtl;
+    text-align: right;
+    font-family: 'Assistant', sans-serif;
+    position: relative;
+    overflow: hidden;
+    animation: formAppear 0.6s ease-out;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    margin-bottom: 0; /* וידאתי שאין margin-bottom שמפריע */
+}
+
+/* אפקט זוהר סביב הטופס */
+form::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        rgba(139, 69, 255, 0.2), 
+        rgba(59, 130, 246, 0.2),
+        rgba(139, 69, 255, 0.2)
+    );
+    border-radius: 25px;
+    z-index: -1;
+}
+
+@keyframes formAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* עיצוב שדות הקלט */
+input {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    margin-bottom: 8px;
+    border: 2px solid rgba(197, 188, 188, 0.1);
+    border-radius: 15px;
+    font-size: 16px;
+    font-family: 'Assistant', sans-serif;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+}
+
+input:focus {
+    outline: none;
+    border-color: rgba(139, 69, 255, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        0 0 0 3px rgba(139, 69, 255, 0.2),
+        0 8px 25px rgba(139, 69, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+input:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/* עיצוב הודעות שגיאה */
+h4 {
+    display: none;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 8px;
+    animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+h4.show {
+    display: block;
+}
+
+/* עיצוב הודעות מידע */
+h5 {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 20px 0 15px 0;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+}
+
+#lk {
+    display: block;
+    margin: 15px 0;
+}
+
+/* עיצוב הלינקים */
+span#lk {
+    color: #8b45ff;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+span#lk::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    right: 0;
+    background: linear-gradient(90deg, #8b45ff, #3b82f6);
+    transition: width 0.3s ease;
+}
+
+span#lk:hover {
+    color: #3b82f6;
+    text-shadow: 0 0 8px rgba(139, 69, 255, 0.5);
+}
+
+span#lk:hover::after {
+    width: 100%;
+}
+
+/* עיצוב כפתורים */
+button {
+    width: 100%;
+    background: linear-gradient(135deg, #8b45ff 0%, #3b82f6 100%);
+    color: white;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Assistant', sans-serif;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 25px rgba(139, 69, 255, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 35px rgba(139, 69, 255, 0.4),
+        0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #9d5bff 0%, #4f90f6 100%);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 6px 20px rgba(139, 69, 255, 0.3),
+        0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* כפתור משני - מתחת לטופס */
+button#toSignUp {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    margin: 20px 0 0 0; /* שיניתי מ auto ל-0 כדי לא לנסות לצנטר */
+    font-weight: 400;
+    max-width: 450px;
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 10;
+    clear: both; /* הוספתי כדי לוודא שהכפתור לא יהיה לצד הטופס */
+    float: none; /* הוספתי כדי לוודא שאין float */
+}
+
+button#toSignUp:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #8b45ff;
+}
+
+/* מיכל הכפתור - אם קיים */
+.button-container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        margin: 20px;
+        padding: 2rem 1.5rem;
+        max-width: none;
+    }
+    
+    #main {
+        padding: 100px 10px 60px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 1.5rem 1rem;
+    }
+    
+    input, button {
+        font-size: 14px;
+        padding: 14px 16px;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>FuturaWish</title>
+    <link rel="icon" type="image/png" href="../pic/לוגו כרטיסיה.png">
+    <link rel="stylesheet" href="../css/payment.css">
+    
+</head>
+<body>
+    <!-- חלקיקים ברקע -->
+    <div class="bg-particles" id="particles"></div>
+    
+    <!-- זיקוקים -->
+    <div class="fireworks" id="fireworks"></div>
+
+    <div class="success-container">
+        <!-- אייקון הצלחה -->
+        <div class="success-icon">
+            <div class="success-circle">
+                <svg class="checkmark" viewBox="0 0 100 100">
+                    <path d="M20,50 L40,70 L80,30" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- כותרת הצלחה -->
+        <h1 class="success-title">התשלום בוצע בהצלחה!</h1>
+
+        <!-- כרטיס פרטי הזמנה -->
+        <div class="order-card">
+            <div class="order-number">
+                <h3>מספר הזמנה</h3>
+                <div class="order-id" id="orderNumber">ORD-2025-789456</div>
+            </div>
+
+            <div class="order-details">
+                <div class="detail-item">
+                    <div class="detail-label">סכום כולל</div>
+                    <div class="detail-value"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">שיטת תשלום</div>
+                    <div class="detail-value">כרטיס אשראי</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">תאריך הזמנה</div>
+                    <div class="detail-value" id="orderDate">13/06/2025</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">זמן משוער למשלוח</div>
+                    <div class="detail-value">2-3 ימי עבודה</div>
+                </div>
+            </div>
+
+            <div class="thank-you-message">
+                <div class="thank-you-text">
+                    תודה רבה על הרכישה!
+                </div>
+                <div class="thank-you-subtext">
+                    ההזמנה שלך נשלחה! עכשיו נשאר רק להתפלל!🙏
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="window.print()">
+                    📄 הדפס קבלה
+                </button>
+                <button class="action-btn secondary" onclick="continueShopping()">
+                    🛍️ המשך קנייה
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/payment.js">
+       
+    </script>
+</body>
+</html>

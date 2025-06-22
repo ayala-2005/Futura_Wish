@@ -1,0 +1,461 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url('../pic/רקע\ סופי.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+  rgba(15, 23, 36, 0.7) 0%,   /* שקיפות של 50% */
+  rgba(26, 41, 67, 0.7) 50%,
+  rgba(44, 62, 117, 0.7) 100%);
+  z-index: -1;
+}
+body {
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+ 
+  padding: 0;
+  position: relative;
+  margin-bottom: 50px;
+  /* direction: ltr; */
+}
+
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 120px;
+    background-color: rgba(10, 22, 63, 0.85); 
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    height: 80px;
+    direction: ltr;
+  }
+  
+  .logo {
+    background-image: url(../pic/לוגו.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+}
+  .navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar ul li {
+    margin-left: 25px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding-bottom: 5px;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    text-shadow:
+      0 0 10px #2b67b5,
+      0 0 20px #2b67b5,
+      0 0 30px #2b67b5,
+      0 0 40px #2b67b5;
+  }
+  
+  .navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+  }
+  
+  .navbar ul li a:hover {
+    text-shadow: 
+      0 0 10px #ffffff,
+      0 0 20px #c300ff,
+      0 0 40px #c300ff,
+      0 0 80px #c300ff;
+  }
+  
+  .navbar ul li a:hover::after {
+    width: 100%;
+  }
+
+ /* עיגול משתמש עדין */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-avatar:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 22, 63, 0.9);
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    height: 25px;
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.7;
+    letter-spacing: 1.5px;
+    font-weight: 300;
+}
+
+/* וודא שיש מקום לfooter */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* מרווח קטן בין הסל לעיגול */
+}
+
+/* עיצוב סל קניות עם זוהר */
+.cart-icon {
+  font-size: 35px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  text-shadow:
+    0 0 10px #2b67b5,
+    0 0 20px #2b67b5,
+    0 0 30px #2b67b5,
+    0 0 40px #2b67b5;
+}
+
+.cart-icon:hover {
+  transform: scale(1.2);
+  text-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #c300ff,
+    0 0 30px #c300ff,
+    0 0 40px #c300ff,
+    0 0 60px #c300ff;
+}
+
+
+/* עיגוללל */
+
+.cart-icon {
+  position: relative; /* חשוב כדי למקם את העיגול בתוך האייקון */
+}
+
+#cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #e770c0;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #ec80fa;
+  pointer-events: none; /* שלא יתפוס קליקים */
+}
+
+/* רספונסיבי--------- */
+/* Media Queries - רספונסיבי - שורה אחת */
+
+/* טאבלט גדול */
+@media screen and (max-width: 1024px) {
+  header {
+    padding: 20px 60px;
+  }
+  
+  .navbar ul {
+    gap: 15px;
+  }
+  
+  .navbar ul li {
+    margin-left: 15px;
+  }
+  
+  .navbar ul li a {
+    font-size: 16px;
+  }
+}
+
+/* טאבלט */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 15px 30px;
+    height: 70px;
+  }
+  
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .navbar ul {
+    gap: 12px;
+  }
+  
+  .navbar ul li {
+    margin-left: 12px;
+  }
+  
+  .navbar ul li a {
+    font-size: 15px;
+  }
+  
+  .cart-icon {
+    font-size: 28px;
+  }
+  
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  
+  .user-section {
+    gap: 20px;
+  }
+}
+
+/* מובייל גדול */
+@media screen and (max-width: 600px) {
+  header {
+    padding: 10px 20px;
+    height: 60px;
+    /* השארת flex-wrap מבוטל כדי לשמור על שורה אחת */
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0; /* מונע כיווץ */
+  }
+  
+  .navbar {
+    flex: 1; /* תופס את כל המקום הזמין */
+  }
+  
+  .navbar ul {
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .navbar ul li {
+    margin-left: 0;
+  }
+  
+  .navbar ul li a {
+    font-size: 13px;
+    padding: 5px 8px;
+    white-space: nowrap; /* מונע מעבר שורה */
+  }
+  
+  .cart-icon {
+    font-size: 24px;
+  }
+  
+  .user-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+    flex-shrink: 0; /* מונע כיווץ */
+  }
+  
+  .user-section {
+    gap: 12px;
+    flex-shrink: 0; /* מונע כיווץ */
+  }
+}
+
+/* מובייל */
+@media screen and (max-width: 480px) {
+  header {
+    padding: 8px 15px;
+    height: 55px;
+  }
+  
+  .logo {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .navbar ul {
+    gap: 6px;
+  }
+  
+  .navbar ul li a {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+  
+  .cart-icon {
+    font-size: 22px;
+  }
+  
+  .user-avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 0.6rem;
+  }
+  
+  .user-section {
+    gap: 10px;
+  }
+  
+  #cart-count {
+    width: 16px;
+    height: 16px;
+    font-size: 9px;
+    top: -5px;
+    right: -5px;
+  }
+}
+
+/* מובייל קטן */
+@media screen and (max-width: 400px) {
+  header {
+    padding: 5px 12px;
+    height: 50px;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .navbar ul {
+    gap: 4px;
+  }
+  
+  .navbar ul li a {
+    font-size: 11px;
+    padding: 3px 5px;
+  }
+  
+  .cart-icon {
+    font-size: 20px;
+  }
+  
+  .user-avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 0.5rem;
+  }
+  
+  .user-section {
+    gap: 8px;
+  }
+}
+
+/* מובייל זעיר */
+@media screen and (max-width: 320px) {
+  header {
+    padding: 5px 8px;
+    height: 45px;
+  }
+  
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .navbar ul {
+    gap: 2px;
+  }
+  
+  .navbar ul li a {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+  
+  .cart-icon {
+    font-size: 18px;
+  }
+  
+  .user-avatar {
+    width: 22px;
+    height: 22px;
+    font-size: 0.5rem;
+  }
+  
+  .user-section {
+    gap: 6px;
+  }
+  
+  #cart-count {
+    width: 14px;
+    height: 14px;
+    font-size: 8px;
+  }
+  
+  footer {
+    font-size: 9px;
+    height: 18px;
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>FuturaWish</title>
+    <link rel="icon" type="image/png" href="../pic/לוגו כרטיסיה.png">
+    <link rel="stylesheet" href="../css/ProductDetails.css">
+    <link rel="stylesheet" href="../css/menu.css">
+</head>
+
+<body>
+
+    <header>
+      <div class="logo"></div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="../html/about.html">אודות</a></li>
+          <li><a href="../html/product.html">מוצרים</a></li>
+          <li><a href="../index.html">דף הבית</a></li>
+          <li><a href="../html/login.html">כניסה</a></li>
+        </ul>
+      </nav>
+      <div class="user-section">
+        <a href="../html/ShoppingCart.html" class="cart-icon">🛒
+          <span id="cart-count"></span>
+        </a>
+        <div class="user-avatar"></div>
+      </div>
+    </header>
+    
+    <div class="container">
+        <button class="back-button" onclick="goBack()">▶</button>
+        <div class="product-page">
+            <div class="details">
+                <div class="title-box fade-in-element">
+                </div>
+
+                <div class="product-details fade-in-element">
+                    <div class="detail-item">
+                        <span class="detail-label">📝 תיאור:</span>
+                        <span class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">🏷️ קטגוריה:</span>
+                        <span class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">📦 זמן:</span>
+                        <span class="detail-value error"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">💰 מחיר:</span>
+                        <span class="detail-value"></span>
+                    </div>
+                </div>
+
+                <button class="add-to-cart fade-in-element" onclick="add()">
+                    <span>הוסף לסל קניות 🛒</span>
+                </button>
+            </div>
+
+            <div class="image-display">
+                <div class="main-image">
+                    <div class="badge">מבצע חם! 🔥</div>
+                </div>
+
+                <div class="thumbs">
+                    <div class="thumb" onclick="pic(0)"></div>
+                    <div class="thumb" onclick="pic(1)"></div>
+                    <div class="thumb" onclick="pic(2)"></div>
+                    <div class="thumb" onclick="pic(3)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <footer>
+        <p> © 2025 FuturaWish | נוצר ע"י אילה דרמר ואפרת גאדו</p>
+    </footer>
+    <script src="../js/menu.js"></script>
+    <script src="../js/ProductDetails.js"></script>
+</body>
+
+</html>
