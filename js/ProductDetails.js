@@ -38,7 +38,7 @@ document.querySelector('.add-to-cart').addEventListener('click', function (e) {
 });
 let pics = document.getElementsByClassName('thumb');
 
-// קודם מפענחים את ה־JSON חזרה למערך
+// קודם  את ה־JSON חזרה למערך
 let picssession = JSON.parse(sessionStorage.getItem('who'));
 let examplesArray = picssession.examples;
 
@@ -90,7 +90,7 @@ if(isOne){
         if (examplesArray[index].title == title1) {
             basket.push(examplesArray[index])
 
-            let sal = document.getElementsByClassName('add-to-cart fade-in-element')[0]
+            // let sal = document.getElementsByClassName('add-to-cart fade-in-element')[0]
 
             //  הזזת הסל - אנימציה:
             document.querySelector('.cart-icon').classList.add('shake-sideways');
@@ -109,12 +109,7 @@ if(isOne){
 }
 }
 
-// לפעמים לעשות מבצע לוהט ולפעמים לא
-let bool = Math.floor(Math.random() * 2)
-if (bool == 0) {
-    let hot = document.getElementsByClassName('badge')[0]
-    hot.style.display = 'none'
-}
+
 
 
 // כפתור חזרה

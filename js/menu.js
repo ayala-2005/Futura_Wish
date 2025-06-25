@@ -6,7 +6,7 @@ if (userName) {
     namem.innerText = 'אורח';
 }
 
-
+// עיגול סל
 let basketCount = JSON.parse(localStorage.getItem('basket'))
 let circle = document.getElementById('cart-count')
 circle.textContent = basketCount.length

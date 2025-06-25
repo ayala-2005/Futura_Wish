@@ -91,8 +91,7 @@ function updateDate() {
 
 // פונקציית המשך קנייה
 function continueShopping() {
-    window.location.href="./index.html"
-
+window.location.href="../index.html"
 }
 
 // אפקט צליל (אופציונלי)
